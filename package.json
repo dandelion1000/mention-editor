@@ -1,46 +1,77 @@
 {
-  "name": "hello-world",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.1.1",
-    "@vue/cli-plugin-eslint": "^3.1.1",
-    "@vue/cli-service": "^3.1.1",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+    "name": "mention-editor",
+    "version": "0.1.0",
+    "description": "mention @sb or #label",
+    "main": "dist/index.html",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
+    "dependencies": {
+        "core-js": "^2.6.5",
+        "vue": "^2.6.10"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dandelion1000/mention-editor.git"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.1.1",
+        "@vue/cli-plugin-eslint": "^3.1.1",
+        "@vue/cli-service": "^3.1.1",
+        "babel-eslint": "^10.0.1",
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.2.3",
+        "less": "^3.10.1",
+        "less-loader": "^5.0.0",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {
+            "vue/html-indent": [
+                1,
+                2
+            ],
+            "indent": [
+                "error",
+                2,
+                {
+                    "SwitchCase": 1
+                }
+            ]
+        },
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
     ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "keywords": [
+        "vue",
+        "mention",
+        "editor",
+        "javascript"
+    ],
+    "author": "xianxianzpl@gmail.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dandelion1000/mention-editor/issues"
+    },
+    "homepage": "https://github.com/dandelion1000/mention-editor#readme"
 }
