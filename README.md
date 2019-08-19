@@ -4,7 +4,7 @@
 yarn add mentioneditor
 ```
 ##### how to use 
-```
+```javascript
 <template>
   <div>
     <mention-editor></mention-editor>
