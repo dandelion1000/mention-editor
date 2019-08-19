@@ -1,0 +1,25 @@
+{
+  "name": "mention-editor",
+  "version": "1.0.0",
+  "description": "mention @sb or #label",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dandelion1000/mention-editor.git"
+  },
+  "keywords": [
+    "vue",
+    "mention",
+    "editor",
+    "javascript"
+  ],
+  "author": "xianxianzpl@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dandelion1000/mention-editor/issues"
+  },
+  "homepage": "https://github.com/dandelion1000/mention-editor#readme"
+}
