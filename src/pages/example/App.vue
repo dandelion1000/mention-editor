@@ -6,7 +6,7 @@
 </template>
 <script>
 
-import mention from 'mentioneditor'
+import mention from '../mentions/mention.vue'
 export default {
   components:{
     'mention':mention
@@ -15,39 +15,39 @@ export default {
     return {
       personList:[{
         id:"001",
-        text:'sb1'
+        text:'安格勒'
       },{
         id:"002",
-        text:'sb2'
+        text:'冯小小'
       },{
         id:"003",
-        text:'sb3'
+        text:'umor官方'
       },{
         id:"004",
-        text:'sb4'
+        text:'小明'
       },{
         id:"005",
-        text:'sb5'
+        text:'王小二'
       },{
         id:"006",
-        text:'sb6'
+        text:'赵大福'
       }],
       topicList:[
         {
           id:'001',
-          text:'话题1'
+          text:'热门话题1'
         }, 
         {
           id:'002',
-          text:'话题2'
+          text:'热门话题2'
         }, 
         {
           id:'003',
-          text:'话题3'
+          text:'热门话题3'
         }, 
         {
           id:'004',
-          text:'话题4'
+          text:'热门话题4'
         }
       ]
     }

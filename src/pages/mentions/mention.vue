@@ -2,14 +2,14 @@
   <div class="um-container-editor white-bg">
     <div 
       class="tribute-container" 
-      v-if="isPop"
+      v-show="isPop"
     >
       <ul >
         <li 
           v-for="(elem,index) in mentions" :key="index"
           data-index="0" 
           :class="{'highlight':curIndex==index}"  
-          @click="insertTp">
+          @click="insertTp($event,index)">
           {{elem.text}}
         </li>
       </ul>
@@ -81,7 +81,8 @@ export default {
       currentSelection: null,
       topicList: [],
       poxobj: {},
-      emotjlist:[]
+      emotjlist:[],
+      curMentionType:''
     };
   },
   mounted() {
@@ -124,7 +125,9 @@ export default {
         */
     clickLabel($event, type) {
       let val = $event.target.innerText;
-      let text = (type == 1) ? (`${val}# `) : ` ${val} `;
+      let mention = this.curMentionType
+      let distext = mention==='#' ? `${val}# ` : `${val} `
+      let text = (type == 1) ? (distext) : ` ${val} `;
       this.setLastRange();
       document.execCommand('insertText', false, text);
     },
@@ -166,15 +169,17 @@ export default {
       // console.log('$event.key',$event.key)
       // console.log('this.sbList',this.sbList)
       const show = ()=>{
-        this.isPop = true;
+        document.querySelector('.tribute-container').style.cssText = `top: ${this.poxobj.y+18}px;left: ${this.poxobj.x}px`;
         setTimeout(() => {
-          document.querySelector('.tribute-container').style.cssText = `top: ${this.poxobj.y+18}px;left: ${this.poxobj.x}px`;
+          this.isPop = true;
         });
       }
       if ($event.key === '#' && this.topics.length>0) {
+        this.curMentionType = '#'
         this.mentions = this.topics
         show()
       } else if($event.key === '@' && this.sbList.length>0){
+        this.curMentionType = '@'
         this.mentions = this.sbList
         show()
       }
@@ -344,7 +349,7 @@ export default {
   color: #3f5efb;
   padding: 5px 13px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
 }
 .tribute-container li.highlight,
 .tribute-container li:hover {
