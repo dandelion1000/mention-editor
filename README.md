@@ -41,5 +41,5 @@ export default {
 when we need @sb,we just v-bind:sb-list="xxxList" 
 ```
 ```
-when we neew mention #some topic,we just v-bind:topics is ok
+when we need mention #some topic,we just v-bind:topics is ok
 ```
