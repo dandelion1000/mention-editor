@@ -6,11 +6,11 @@
     >
       <ul >
         <li 
-          v-for="(elem,index) in labels" :key="index"
+          v-for="(elem,index) in mentions" :key="index"
           data-index="0" 
           :class="{'highlight':curIndex==index}"  
           @click="insertTp">
-          {{elem.title}}
+          {{elem.text}}
         </li>
       </ul>
     </div>
@@ -35,9 +35,9 @@
       </div>
     </div>
 
-    <div class="u-tags pull-left">
-      <template v-for="item in labels.slice(0,4)">
-        <a :key="item.id" class="labels" @click="clickLabel">#{{ item.title }}#</a>
+    <div class="u-tags pull-left" v-if="topics.length">
+      <template v-for="item in topics.slice(0,4)">
+        <a :key="item.id" class="labels" @click="clickLabel">#{{ item.text }}#</a>
       </template>
     </div>
   </div>
@@ -49,30 +49,33 @@ import posxy from './getFocusPos';
 import emotjson from './emojis.js'
 export default {
   props: {
-    html: String,
+    sbList:{
+      type:Array,
+      // 对象或数组默认值必须从一个工厂函数获取
+      default:function(){
+        return []
+      }
+    },
+    topics:{
+      type:Array,
+      // 对象或数组默认值必须从一个工厂函数获取
+      default:function(){
+        return []
+      }
+      // validator: function (value) {
+      //   // 这个值必须匹配下列字符串中的一个
+      //   return value.length!==0
+      // }
+  
+    },
   },
   data() {
     return {
       isPop: false,
+      mentions:[],
       showEmo:false,
       editorHtml: '',
       curIndex:0,
-      labels: [{
-        id:'001',
-        title:'悠一下'
-      }, 
-      {
-        id:'002',
-        title:'开心一刻'
-      }, 
-      {
-        id:'003',
-        title:'摸鱼咯'
-      }, 
-      {
-        id:'004',
-        title:'打卡'
-      }],
       disnone: false,
       lastEditRange: null,
       currentSelection: null,
@@ -82,6 +85,9 @@ export default {
     };
   },
   mounted() {
+    // console.log('this.sbList',this.sbList)
+    // console.log('this.topics',this.topics)
+
     this.emotjlist = emotjson;
     let $self = this;
     document.addEventListener('click', function ($event) {
@@ -144,12 +150,7 @@ export default {
       if ($event.keyCode == 32) {
         this.isPop = false;
       }
-      if ($event.key === '#') {
-        this.isPop = true;
-        setTimeout(() => {
-          document.querySelector('.tribute-container').style.cssText = `top: ${this.poxobj.y+18}px;left: ${this.poxobj.x}px`;
-        });
-      }
+      this.popWhichMention($event)
       if (!this.isPop) {
         return
       }
@@ -161,8 +162,25 @@ export default {
         this.dealArrowCode(1);
       }
     },
+    popWhichMention($event){
+      // console.log('$event.key',$event.key)
+      // console.log('this.sbList',this.sbList)
+      const show = ()=>{
+        this.isPop = true;
+        setTimeout(() => {
+          document.querySelector('.tribute-container').style.cssText = `top: ${this.poxobj.y+18}px;left: ${this.poxobj.x}px`;
+        });
+      }
+      if ($event.key === '#' && this.topics.length>0) {
+        this.mentions = this.topics
+        show()
+      } else if($event.key === '@' && this.sbList.length>0){
+        this.mentions = this.sbList
+        show()
+      }
+    },
     dealArrowCode(direction){
-      const optionIndex = this.labels.length -1
+      const optionIndex = this.topics.length -1
       const cur = this.curIndex
       if (direction > 0) {
         if(cur-optionIndex<0){
@@ -223,7 +241,7 @@ export default {
     outline: none;
 }
 .um-container-editor {
-  width:600px;
+  min-width:375px;
   margin: 30px;
     .u-tags {
         margin-top: 20px;
@@ -240,7 +258,7 @@ export default {
     }
     .pp-editor {
         position: relative;
-        min-height: 150px;
+        min-height: 13vw;
         border: 1px solid #eee;
         border-radius: 5px;
         text-align: left;
@@ -261,7 +279,7 @@ export default {
         }
         .editor-content {
             padding: 10px 10px 30px;
-            min-height: 120px;
+            min-height: 10vw;
             word-break: break-all;
             word-wrap: break-word;
             .hixl {
@@ -288,7 +306,7 @@ export default {
                 height: 22px;
                 background-position: center;
                 background-repeat: no-repeat;
-                background-image: url(../assets/emoij.png);
+                background-image: url(./assets/emoij.png);
                 background-size: 25px 22px;
             }
         }

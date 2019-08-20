@@ -1,9 +1,8 @@
 import Vue from 'vue'
-import Mention from './pages/mention.vue'
-export default Mention;
+import App from './pages/example/App.vue'
 
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
 
 new Vue({
-    render: h => h(Mention),
+  render: h => h(App),
 }).$mount('#app')
