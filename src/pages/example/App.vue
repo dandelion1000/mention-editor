@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="app">
     <!-- 即便数组是静态的，我们仍然需要 `v-bind` 来告诉 Vue -->
     <mention v-bind:sb-list="personList" v-bind:topics="topicList"></mention>
   </div>
 </template>
 <script>
-import mention from '../mentions/mention.vue'
+
+import mention from 'mentioneditor'
 export default {
   components:{
     'mention':mention
@@ -52,7 +53,12 @@ export default {
     }
   },
   mounted() {
-    console.log('appmounted')
   }
 }
 </script>
+<style lang="less">
+  .app{
+    margin: 30px;
+    width: 500px
+  }
+</style>

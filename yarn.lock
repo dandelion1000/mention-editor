@@ -5035,10 +5035,10 @@ memory-fs@^0.4.0, memory-fs@^0.4.1, memory-fs@~0.4.1:
     errno "^0.1.3"
     readable-stream "^2.0.1"
 
-mentioneditor@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/mentioneditor/-/mentioneditor-1.1.0.tgz#550ded0f9cf50475952c86b11d2fa078b4441e69"
-  integrity sha512-YarYjjY7NS40bWRVKhje5yft9ERU46giHj8zDJ2cbxHeXov6UUL6F6oKpIAxGr1F3mMIaMbC0/YL0ZzqRKhkHQ==
+mentioneditor@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.npmjs.org/mentioneditor/-/mentioneditor-1.1.4.tgz#703e7735651bb0ef344d5923cf429589d49ed131"
+  integrity sha512-AfD/FGhmhr4imY4jFBC2LDzgxGRI0T/AUh5rM6VBu6ciO2CxQ7aDrKoipZmUtTy8cIdpYoqYpTDhf/xsVjSEtg==
 
 merge-descriptors@1.0.1:
   version "1.0.1"

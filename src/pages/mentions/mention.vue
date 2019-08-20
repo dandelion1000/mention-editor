@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="um-container-editor white-bg">
+  <div class="um-container-editor white-bg">
     <div 
       class="tribute-container" 
       v-if="isPop"
@@ -230,19 +230,20 @@ export default {
 };
 </script>
 <style lang="less">
-#app {
-    font-family: Avenir,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-}
 /*修改聚焦时的边框*/
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 *:focus,*:active ,*:link{
     outline: none;
 }
 .um-container-editor {
-  min-width:375px;
-  margin: 30px;
+  font-family: Avenir,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
     .u-tags {
         margin-top: 20px;
         text-align: left;
@@ -258,7 +259,7 @@ export default {
     }
     .pp-editor {
         position: relative;
-        min-height: 13vw;
+        min-height: 130px;
         border: 1px solid #eee;
         border-radius: 5px;
         text-align: left;
@@ -279,7 +280,7 @@ export default {
         }
         .editor-content {
             padding: 10px 10px 30px;
-            min-height: 10vw;
+            min-height: 100px;
             word-break: break-all;
             word-wrap: break-word;
             .hixl {

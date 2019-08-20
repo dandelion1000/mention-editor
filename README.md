@@ -37,3 +37,5 @@ export default {
 }
 </script>
 ```
+when we need @sb,we just v-bind:sb-list="xxxList" 
+when we neew mention #some topic,we just v-bind:topics is ok
