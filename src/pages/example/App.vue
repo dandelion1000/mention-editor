@@ -1,12 +1,12 @@
 <template>
   <div class="app">
     <!-- 即便数组是静态的，我们仍然需要 `v-bind` 来告诉 Vue -->
-    <mention v-bind:sb-list="personList" v-bind:topics="topicList"></mention>
+    <mention emotj v-bind:sb-list="personList" v-bind:topics="topicList"></mention>
   </div>
 </template>
 <script>
-// import mention from 'mentioneditor'
-import mention from '../mentions/mention.vue'
+import mention from 'mentioneditor'
+// import mention from '../mentions/mention.vue'
 export default {
   components:{
     'mention':mention
