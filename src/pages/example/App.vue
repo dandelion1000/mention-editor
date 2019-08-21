@@ -5,8 +5,8 @@
   </div>
 </template>
 <script>
-
-import mention from 'mentioneditor'
+// import mention from 'mentioneditor'
+import mention from '../mentions/mention.vue'
 export default {
   components:{
     'mention':mention
@@ -59,6 +59,6 @@ export default {
 <style lang="less">
   .app{
     margin: 30px;
-    width: 560px
+    // width: 560px
   }
 </style>

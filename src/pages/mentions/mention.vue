@@ -36,7 +36,7 @@
     </div>
 
     <div class="u-tags pull-left" v-if="topics.length">
-      <template v-for="item in topics.slice(0,4)">
+      <template v-for="item in topics.slice(0,3)">
         <a :key="item.id" class="labels" @click="clickLabel">#{{ item.text }}#</a>
       </template>
     </div>
@@ -81,14 +81,13 @@ export default {
       currentSelection: null,
       topicList: [],
       poxobj: {},
-      emotjlist:[],
-      curMentionType:''
+      emotjlist: [],
+      curMentionType: ''
     };
   },
   mounted() {
     // console.log('this.sbList',this.sbList)
     // console.log('this.topics',this.topics)
-
     this.emotjlist = emotjson;
     let $self = this;
     document.addEventListener('click', function ($event) {
@@ -285,7 +284,7 @@ export default {
         }
         .editor-content {
             padding: 10px 10px 30px;
-            min-height: 100px;
+            min-height: 130px;
             word-break: break-all;
             word-wrap: break-word;
             .hixl {
