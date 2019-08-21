@@ -47,6 +47,9 @@ when we need mention #some topic,we just v-bind:topics is ok
 ```
 ![图片](https://coding-net-production-pp-ci.codehub.cn/3dc08130-4814-48c4-b82c-677d013c3446.png)
 
+#### about paste img
 you can also paste the img that copy from local  or other net page's .
 ![图片](https://coding-net-production-pp-ci.codehub.cn/45561dad-c5df-4aa4-887b-a1803cf90f80.png)
+
+#### about paste other content that have style ,I deal with clear all style and at this time content will don't have img although content contains img.
 
