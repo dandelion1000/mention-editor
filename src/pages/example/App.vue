@@ -59,6 +59,6 @@ export default {
 <style lang="less">
   .app{
     margin: 30px;
-    // width: 560px
+    max-width: 560px
   }
 </style>
