@@ -22,10 +22,9 @@
            @keyup="dealMentionPop"
            @input="editorInput"
            @click="getFocus"
-           @paste="onPaste"
       >
       </div>
-      <div class="editor-icon">
+      <div class="editor-icon" v-if="emotj">
         <i class="icon-emoij" @click="showEmotj"></i>
       </div>
       <div class="emot-icons" v-if="showEmo" @click="stopFlase">
@@ -43,12 +42,15 @@
   </div>
 </template>
 <script>
-import { getPasteText } from './utils/paste-handle.js';
-
+import handlePaste from './utils/deal-paste.js';
 import posxy from './getFocusPos';
 import emotjson from './emojis.js'
 export default {
   props: {
+    emotj:{
+      type: Boolean,
+      default: false
+    },
     sbList:{
       type:Array,
       // 对象或数组默认值必须从一个工厂函数获取
@@ -86,10 +88,9 @@ export default {
     };
   },
   mounted() {
-    // console.log('this.sbList',this.sbList)
-    // console.log('this.topics',this.topics)
+    let $textElem = document.querySelector('#um-editor'), $self = this;
+    handlePaste($textElem, this);
     this.emotjlist = emotjson;
-    let $self = this;
     document.addEventListener('click', function ($event) {
       let event = $event || window.event;
       $self.showEmo = false;
@@ -97,15 +98,6 @@ export default {
     });
   },
   methods: {
-    onPaste($event) {
-      $event.preventDefault();
-      let editor = $event.target;
-      editor.focus();
-      // let pasteHtml = getPasteHtml($event, false, true);
-      let pasteText = getPasteText($event);
-      pasteText = pasteText.replace(/\n/gm, '<br>');
-      document.execCommand('insertHTML', false,  `${pasteText}`);
-    },
     stopFlase(){
       event.stopPropagation();
     },
